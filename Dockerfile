@@ -27,8 +27,8 @@ FROM node:20-alpine
 WORKDIR /app
 
 # Copy only the build output and package.json
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/package*.json ./
+COPY --from=builder /dist ./dist
+COPY --from=builder /package*.json ./
 
 # Install only production dependencies
 RUN npm install --production
