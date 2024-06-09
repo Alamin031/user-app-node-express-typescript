@@ -1,5 +1,5 @@
 import { User } from "../models/user.entity";
-import * as bcrypt from "bcrypt";
+import bcrypt from 'bcryptjs';
 import * as jwt from "jsonwebtoken";
 import { UserModel } from "../interface/user.interface";
 import { PasswordResetToken } from "../models/passwordResetToken.entity";
