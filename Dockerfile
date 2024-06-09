@@ -2,11 +2,10 @@
 FROM node:20-alpine AS builder
 
 # Set working directory
-WORKDIR /
+WORKDIR /app
 
 # Copy package.json and package-lock.json
 COPY package*.json ./
-
 
 # Install dependencies
 RUN npm install
@@ -23,10 +22,12 @@ RUN npm run build
 # Stage 2: Run the application
 FROM node:20-alpine
 
+# Set working directory
+WORKDIR /app
 
 # Copy only the build output and package.json
-COPY --from=builder /dist ./dist
-COPY --from=builder /package*.json ./
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/package*.json ./
 
 # Install only production dependencies
 RUN npm install --production
@@ -35,4 +36,4 @@ RUN npm install --production
 EXPOSE 4000
 
 # Start the application
-CMD ["node", "app.js"]
+CMD ["node", "dist/app.js"]
