@@ -23,7 +23,7 @@ RUN npm run build
 FROM node:20-alpine
 
 # Set working directory
-WORKDIR /
+WORKDIR /app
 
 # Copy only the build output and package.json
 COPY --from=builder /app/dist ./dist
@@ -36,4 +36,4 @@ RUN npm install --production
 EXPOSE 4000
 
 # Start the application
-CMD ["node", "app.js"]
+CMD ["node", "dist/app.js"]
