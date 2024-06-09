@@ -1,9 +1,9 @@
 {
   "name": "express-typescript",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "app.ts",
   "scripts": {
-    "start": "node app.js",
+    "start": "nodemon --exec ts-node app.ts",
     "build": "tsc"
   },
   "dependencies": {
