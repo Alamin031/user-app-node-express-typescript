@@ -37,7 +37,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthService = void 0;
 const user_entity_1 = require("../models/user.entity");
-const bcrypt_1 = __importDefault(require("bcrypt"));
+const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const jwt = __importStar(require("jsonwebtoken"));
 const passwordResetToken_entity_1 = require("../models/passwordResetToken.entity");
 const nodemailer_1 = __importDefault(require("nodemailer"));
@@ -46,8 +46,8 @@ class AuthService {
     signup(data) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const salt = yield bcrypt_1.default.genSalt();
-                data.password = yield bcrypt_1.default.hash(data.password, salt);
+                const salt = yield bcryptjs_1.default.genSalt();
+                data.password = yield bcryptjs_1.default.hash(data.password, salt);
                 const user = new user_entity_1.User(data);
                 console.log(user);
                 yield user.save();
@@ -64,7 +64,7 @@ class AuthService {
             if (!user) {
                 throw new Error("User not found");
             }
-            const isPasswordValid = yield bcrypt_1.default.compare(password, user.password);
+            const isPasswordValid = yield bcryptjs_1.default.compare(password, user.password);
             if (!isPasswordValid) {
                 throw new Error("Invalid password");
             }
@@ -100,8 +100,8 @@ class AuthService {
                 if (!resetToken || resetToken.expiresAt < new Date()) {
                     throw new Error("Invalid or expired OTP");
                 }
-                const salt = yield bcrypt_1.default.genSalt();
-                const hashedPassword = yield bcrypt_1.default.hash(newPassword, salt);
+                const salt = yield bcryptjs_1.default.genSalt();
+                const hashedPassword = yield bcryptjs_1.default.hash(newPassword, salt);
                 yield user_entity_1.User.findOneAndUpdate({ email }, { password: hashedPassword });
                 yield resetToken.deleteOne();
             }

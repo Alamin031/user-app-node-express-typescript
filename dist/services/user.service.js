@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserService = void 0;
 const user_entity_1 = require("../models/user.entity");
-const bcrypt_1 = __importDefault(require("bcrypt"));
+const bcryptjs_1 = __importDefault(require("bcryptjs"));
 class UserService {
     getUserProfile(userId) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -39,8 +39,8 @@ class UserService {
                     throw new Error("User not found");
                 }
                 if (data.password) {
-                    const salt = yield bcrypt_1.default.genSalt();
-                    data.password = yield bcrypt_1.default.hash(data.password, salt);
+                    const salt = yield bcryptjs_1.default.genSalt();
+                    data.password = yield bcryptjs_1.default.hash(data.password, salt);
                 }
                 const updatedUserProfile = yield user_entity_1.User.findByIdAndUpdate(userId, data, {
                     new: true,
