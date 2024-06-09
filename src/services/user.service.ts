@@ -1,6 +1,6 @@
 import { User } from "../models/user.entity";
 import { UserModel } from "../interface/user.interface";
-import bcrypt from 'bcryptjs';
+import bcrypt from 'bcrypt';
 
 export class UserService {
   async getUserProfile(userId: string): Promise<UserModel> {
