@@ -35,4 +35,4 @@ RUN npm install --production
 EXPOSE 4000
 
 # Start the application
-CMD ["node", "dist/app.js"]
+CMD ["node", "app.js"]
