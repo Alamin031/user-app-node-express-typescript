@@ -23,8 +23,6 @@ RUN npm run build
 # Stage 2: Run the application
 FROM node:20-alpine
 
-# Set working directory
-WORKDIR /app
 
 # Copy only the build output and package.json
 COPY --from=builder /dist ./dist
