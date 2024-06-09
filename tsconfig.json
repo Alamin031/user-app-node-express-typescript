@@ -1,10 +1,13 @@
 {
   "compilerOptions": {
-    "target": "es2016",
+    "outDir": "./dist",        // Redirect output structure to the directory.
+    "rootDir": "./src",        // Specify the root directory of input files.
+    "target": "ES6",
     "module": "commonjs",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
     "strict": true,
+    "esModuleInterop": true,
     "skipLibCheck": true
-  }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }
