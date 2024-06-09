@@ -116,3 +116,19 @@ __sapper__/
 
 # Project environment specific
 .env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# VS Code
+.history
+
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# Others
+.idea/
