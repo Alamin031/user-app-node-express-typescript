@@ -99,7 +99,8 @@ dist
 # Optional stylelint cache
 .stylelintcache
 
-
+# Build output
+dist/
 
 # TypeScript compiled output
 *.js
