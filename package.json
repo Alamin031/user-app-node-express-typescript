@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "prestart": "mkdirp dist",
     "start": "node app.js",
     "build": "tsc"
   },
@@ -31,7 +30,6 @@
     "@types/node": "^20.8.0",
     "@types/nodemailer": "^6.4.11",
     "@types/otp-generator": "^4.0.0",
-    "mkdirp": "^1.0.4",
     "nodemon": "^3.0.1",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.2.2"
