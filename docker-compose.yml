@@ -5,6 +5,6 @@ services:
     ports:
       - "5000:4000"  # Use port 5000 on the host
     env_file:
-      - .env
+      - .env.local
     environment:
       - NODE_ENV=production
