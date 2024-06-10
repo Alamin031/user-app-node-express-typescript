@@ -1,9 +1,9 @@
 {
   "name": "express-typescript",
   "version": "1.0.0",
-  "main": "dist/app.js",
+  "main": "src/app.ts",
   "scripts": {
-    "start": "ts-node dist/app.js",
+    "start": "ts-node src/app.ts",
     "build": "tsc"
   },
   "keywords": [],

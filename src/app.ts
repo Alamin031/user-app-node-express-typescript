@@ -2,9 +2,9 @@ import express from "express";
 import mongoose, { ConnectOptions } from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
-import authRouter from "./src/routes/auth.route";
-import userRouter from "./src/routes/user.route";
-import { auth } from "./src/middleware/auth";
+import authRouter from "./routes/auth.route";
+import userRouter from "./routes/user.route";
+import { auth } from "./middleware/auth";
 
 dotenv.config();
 
@@ -15,7 +15,7 @@ app.use(cors());
 app.use(express.json());
 
 const connectdb = async () => {
-  const MONGODB_URI = process.env.MONGODB_URI || "";
+  const MONGODB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/testex";
 
   try {
     await mongoose.connect(MONGODB_URI, {

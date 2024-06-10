@@ -35,5 +35,8 @@ RUN npm install --production
 # Expose the port the app runs on
 EXPOSE 4000
 
+# List contents for debugging
+RUN ls -al /app/dist
+
 # Start the application
-CMD ["node", "app.js"]
+CMD ["node", "dist/app.js"]
